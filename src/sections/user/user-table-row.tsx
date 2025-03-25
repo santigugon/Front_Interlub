@@ -36,7 +36,7 @@ import { pdfjs } from 'react-pdf';
 // Explicitly set PDF.js worker source
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-const backendServer = 'http://127.0.0.1:5000';
+const backendServer = 'https://endpoint-interlubhackaton.onrender.com/';
 
 // ----------------------------------------------------------------------
 
