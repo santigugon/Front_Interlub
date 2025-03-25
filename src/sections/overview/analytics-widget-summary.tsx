@@ -19,9 +19,10 @@ import { Chart, useChart } from 'src/components/chart';
 type Props = CardProps & {
   title: string;
   total: number;
-  percent: number;
+  percent?: number;
   color?: ColorType;
   icon: React.ReactNode;
+  fecha?: string;
   chart: {
     series: number[];
     categories: string[];
@@ -35,6 +36,7 @@ export function AnalyticsWidgetSummary({
   total,
   chart,
   percent,
+  fecha,
   color = 'primary',
   sx,
   ...other
@@ -72,10 +74,10 @@ export function AnalyticsWidgetSummary({
         alignItems: 'center',
       }}
     >
-      <Iconify width={20} icon={percent < 0 ? 'eva:trending-down-fill' : 'eva:trending-up-fill'} />
+      <Iconify width={20} icon="eva:calendar-fill" />
       <Box component="span" sx={{ typography: 'subtitle2' }}>
-        {percent > 0 && '+'}
         {fPercent(percent)}
+        Semana del {fecha || ''}
       </Box>
     </Box>
   );
@@ -116,7 +118,7 @@ export function AnalyticsWidgetSummary({
           type="line"
           series={[{ data: chart.series }]}
           options={chartOptions}
-          width={84}
+          width={240}
           height={56}
         />
       </Box>

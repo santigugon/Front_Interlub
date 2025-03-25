@@ -6,3 +6,8 @@
 .simplebar-scrollbar.simplebar-visible:before {
   opacity: 0.48;
 }
+
+.simplebar-placeholder {
+  /* width: auto !important;
+  height: auto !important; */
+}

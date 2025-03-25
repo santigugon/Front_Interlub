@@ -9,6 +9,18 @@
 @import '@fontsource/barlow/700.css';
 @import '@fontsource/barlow/800.css';
 
+@font-face {
+  font-family: 'Open Sans';
+  src: url('OpenSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
 /** **************************************
 * Plugins
 *************************************** */

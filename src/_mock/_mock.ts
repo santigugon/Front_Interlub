@@ -29,34 +29,6 @@ export const _times = (index: number) =>
     '08/09/2024',
   ][index];
 
-export const _fullName = (index: number) =>
-  [
-    'Billy Stoltenberg',
-    'Eloise Ebert',
-    'Teresa Luettgen',
-    'Salvador Mayert',
-    'Dr. Guadalupe Rath',
-    'Kelvin Pouros',
-    'Thelma Langworth',
-    'Kristen Wunsch',
-    'Steve Welch',
-    'Brian Jacobs',
-    'Lillie Schultz',
-    'Mr. Conrad Spinka',
-    'Charlene Krajcik',
-    'Kerry Kuhlman',
-    'Betty Hammes',
-    'Tony Paucek PhD',
-    'Sherri Davis',
-    'Angel Rolfson-Kulas',
-    'Dr. Lee Doyle-Grant',
-    'Cheryl Romaguera',
-    'Billy Braun',
-    'Adam Trantow',
-    'Brandon Von',
-    'Willis Ankunding',
-  ][index];
-
 export const _price = (index: number) =>
   [
     35.17, 57.22, 64.78, 50.79, 9.57, 61.46, 96.73, 63.04, 33.18, 36.3, 54.42, 20.52, 62.82, 19.96,
@@ -230,3 +202,26 @@ export const _productNames = (index: number) =>
     'Nike React Art3mis',
     'Nike React Infinity Run Flyknit A.I.R. Chaz Bear',
   ][index];
+
+export const _ventas = (index: number) => [451, 111, 850, 523, 77, 188, 245, 514, 11][index];
+
+export const _unidades = (index: number) =>
+  ['PZA', 'KG', 'PZA', 'L', 'L', 'L', 'KG', 'L', 'KG'][index];
+
+export const _fullName = (index: number) =>
+  [
+    'IVP04039',
+    'IVP07165',
+    'IVP04009',
+    'IVP11694',
+    'IVP11159',
+    'IVP11162',
+    'IVP07331',
+    'IVP11479',
+    'IVP07169',
+  ][index];
+
+export const _tipo = (index: number) =>
+  ['Sprays', 'Grasas', 'Sprays', 'Aceites', 'Aceites', 'Aceites', 'Grasas', 'Aceites', 'Grasas'][
+    index
+  ];

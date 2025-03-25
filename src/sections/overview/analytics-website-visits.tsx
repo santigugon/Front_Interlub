@@ -21,9 +21,16 @@ type Props = CardProps & {
     }[];
     options?: ChartOptions;
   };
+  unidad?: string;
 };
 
-export function AnalyticsWebsiteVisits({ title, subheader, chart, ...other }: Props) {
+export function AnalyticsWebsiteVisits({
+  title,
+  subheader,
+  chart,
+  unidad = 'KG',
+  ...other
+}: Props) {
   const theme = useTheme();
 
   const chartColors = chart.colors ?? [
@@ -32,10 +39,10 @@ export function AnalyticsWebsiteVisits({ title, subheader, chart, ...other }: Pr
   ];
 
   const chartOptions = useChart({
-    colors: chartColors,
+    colors: ['#F1C232', '#4B77BE', '#D74B4B'],
     stroke: {
       width: 2,
-      colors: ['transparent'],
+      colors: ['white'],
     },
     xaxis: {
       categories: chart.categories,
@@ -45,7 +52,7 @@ export function AnalyticsWebsiteVisits({ title, subheader, chart, ...other }: Pr
     },
     tooltip: {
       y: {
-        formatter: (value: number) => `${value} visits`,
+        formatter: (value: number) => `${value} ${unidad}`,
       },
     },
     ...chart.options,

@@ -19,13 +19,14 @@ export type ProductItemProps = {
   coverUrl: string;
   colors: string[];
   priceSale: number | null;
+  unidad?: string;
 };
 
 export function ProductItem({ product }: { product: ProductItemProps }) {
   const renderStatus = (
     <Label
       variant="inverted"
-      color={(product.status === 'sale' && 'error') || 'info'}
+      color={(product.priceSale !== null && product.priceSale > product.price && 'error') || 'info'}
       sx={{
         zIndex: 9,
         top: 16,
@@ -34,7 +35,7 @@ export function ProductItem({ product }: { product: ProductItemProps }) {
         textTransform: 'uppercase',
       }}
     >
-      {product.status}
+      Unidades estimadas: {product.priceSale} {product.unidad}
     </Label>
   );
 
@@ -63,10 +64,9 @@ export function ProductItem({ product }: { product: ProductItemProps }) {
           textDecoration: 'line-through',
         }}
       >
-        {product.priceSale && fCurrency(product.priceSale)}
+        {/* {product.priceSale && fCurrency(product.priceSale)} */}
       </Typography>
-      &nbsp;
-      {fCurrency(product.price)}
+      Unidades actuales: {product.price} {product.unidad}
     </Typography>
   );
 

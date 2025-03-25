@@ -43,15 +43,8 @@ export function UserView() {
     <DashboardContent>
       <Box display="flex" alignItems="center" mb={5}>
         <Typography variant="h4" flexGrow={1}>
-          Users
+          Productos
         </Typography>
-        <Button
-          variant="contained"
-          color="inherit"
-          startIcon={<Iconify icon="mingcute:add-line" />}
-        >
-          New user
-        </Button>
       </Box>
 
       <Card>
@@ -81,10 +74,10 @@ export function UserView() {
                 }
                 headLabel={[
                   { id: 'name', label: 'Name' },
-                  { id: 'company', label: 'Company' },
-                  { id: 'role', label: 'Role' },
-                  { id: 'isVerified', label: 'Verified', align: 'center' },
-                  { id: 'status', label: 'Status' },
+                  { id: 'company', label: 'Tipo' },
+                  { id: 'role', label: 'Unidades' },
+                  { id: 'isVerified', label: 'Stock', align: 'center' },
+                  { id: 'status', label: 'Unidades disponibles' },
                   { id: '' },
                 ]}
               />
@@ -120,7 +113,7 @@ export function UserView() {
           count={_users.length}
           rowsPerPage={table.rowsPerPage}
           onPageChange={table.onChangePage}
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[7, 25]}
           onRowsPerPageChange={table.onChangeRowsPerPage}
         />
       </Card>

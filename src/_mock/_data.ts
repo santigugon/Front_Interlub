@@ -9,38 +9,29 @@ import {
   _postTitles,
   _description,
   _productNames,
+  _unidades,
+  _ventas,
+  _tipo,
 } from './_mock';
 
 // ----------------------------------------------------------------------
 
 export const _myAccount = {
-  displayName: 'Jaydon Frankie',
-  email: 'demo@minimals.cc',
-  photoURL: '/assets/images/avatar/avatar-25.webp',
+  displayName: 'Datostadas',
+  email: 'demo@datostadas.cc',
+  photoURL: '/assets/images/avatar/avatar-15.webp',
 };
 
 // ----------------------------------------------------------------------
 
-export const _users = [...Array(24)].map((_, index) => ({
+export const _users = [...Array(9)].map((_, index) => ({
   id: _id(index),
   name: _fullName(index),
-  company: _company(index),
+  company: _tipo(index),
   isVerified: _boolean(index),
-  avatarUrl: `/assets/images/avatar/avatar-${index + 1}.webp`,
-  status: index % 4 ? 'active' : 'banned',
-  role:
-    [
-      'Leader',
-      'Hr Manager',
-      'UI Designer',
-      'UX Designer',
-      'UI/UX Designer',
-      'Project Manager',
-      'Backend Developer',
-      'Full Stack Designer',
-      'Front End Developer',
-      'Full Stack Developer',
-    ][index] || 'UI Designer',
+  avatarUrl: `/assets/images/oils/${_tipo(index)}.png`,
+  status: _ventas(index),
+  role: _unidades(index),
 }));
 
 // ----------------------------------------------------------------------
@@ -49,7 +40,7 @@ export const _posts = [...Array(23)].map((_, index) => ({
   id: _id(index),
   title: _postTitles(index),
   description: _description(index),
-  coverUrl: `/assets/images/cover/cover-${index + 1}.webp`,
+  coverUrl: `/assets/images/cover/cover-${index + 10}.webp`,
   totalViews: 8829,
   totalComments: 7977,
   totalShares: 8556,
@@ -57,7 +48,7 @@ export const _posts = [...Array(23)].map((_, index) => ({
   postedAt: _times(index),
   author: {
     name: _fullName(index),
-    avatarUrl: `/assets/images/avatar/avatar-${index + 1}.webp`,
+    avatarUrl: `/assets/images/avatar/avatar-${index + 3}.webp`,
   },
 }));
 
