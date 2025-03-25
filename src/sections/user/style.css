@@ -194,3 +194,13 @@ input[type='date'] {
   align-items: center;
   margin: 20px;
 }
+
+.react-pdf__Page__textContent {
+  color: black !important;
+  border: black 1px solid !important;
+}
+
+.react-pdf__Document {
+  color: black !important;
+  border: black 1px solid !important;
+}

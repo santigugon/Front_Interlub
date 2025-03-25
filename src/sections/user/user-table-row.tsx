@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-imports */
 /* eslint-disable no-plusplus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/button-has-type */
@@ -29,6 +30,11 @@ import { ProductItem } from 'src/sections/product/product-item';
 
 import { AnalyticsWebsiteVisits } from '../overview/analytics-website-visits';
 import { AnalyticsWidgetSummary } from '../overview/analytics-widget-summary';
+// eslint-disable-next-line import/no-extraneous-dependencies, import/order
+import { pdfjs } from 'react-pdf';
+
+// Explicitly set PDF.js worker source
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const backendServer = 'http://127.0.0.1:5000';
 
@@ -131,12 +137,6 @@ export function UserTableRow({ row, selected, onSelectRow }: UserTableRowProps) 
     fetchData(); // Call the fetch function to start fetching data
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Dependencies: Only fetch data when row.name changes
-
-  useEffect(() => {
-    console.log('actualData updated', actualData);
-    console.log('previousPredictions updated', previousPredictions);
-    console.log('maxPredictions updated', maxPredictions);
-  }, [actualData, previousPredictions, maxPredictions]); // Triggered when these states change
 
   return (
     <>
@@ -352,7 +352,7 @@ const Modal = ({
               const jsonResults = await result.json();
               setUnidadesMaximasEstimadas(Math.abs(Math.ceil(jsonResults[0].yhat_upper)));
               setUnidadesEstimadas(Math.abs(Math.ceil(jsonResults[0].yhat)));
-              console.log(jsonResults);
+              // console.log(jsonResults);
             }}
           >
             Buscar estimado en fecha

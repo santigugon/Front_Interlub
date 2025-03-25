@@ -4,6 +4,13 @@ import Typography from '@mui/material/Typography';
 import { _tasks, _posts, _timeline } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
 
+// eslint-disable-next-line perfectionist/sort-imports
+import { useState } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Document, Page, pdfjs } from 'react-pdf';
+// eslint-disable-next-line perfectionist/sort-imports
+
+import { Button, Box } from '@mui/material';
 import { AnalyticsNews } from '../analytics-news';
 import { AnalyticsTasks } from '../analytics-tasks';
 import { AnalyticsCurrentVisits } from '../analytics-current-visits';
@@ -159,6 +166,70 @@ export function OverviewAnalyticsView() {
           <AnalyticsTasks title="Tasks" list={_tasks} />
         </Grid>
       </Grid>
+      <PDFPreview fileUrl="/assets/test.pdf" />
     </DashboardContent>
   );
 }
+
+interface PDFPreviewProps {
+  fileUrl: string;
+}
+
+const PDFPreview: React.FC<PDFPreviewProps> = ({ fileUrl }: PDFPreviewProps) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  const [numPages, setNumPages] = useState<number | null>(null);
+
+  pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js`;
+  // Callback function to handle when the document is loaded
+  const onLoadSuccess = ({ numPages: loadedPages }: { numPages: number }) => {
+    setNumPages(loadedPages);
+  };
+
+  // Navigate to the next page
+  const nextPage = () => {
+    if (pageNumber < (numPages || 1)) {
+      setPageNumber(pageNumber + 1);
+    }
+  };
+
+  // Navigate to the previous page
+  const prevPage = () => {
+    if (pageNumber > 1) {
+      setPageNumber(pageNumber - 1);
+    }
+  };
+
+  return (
+    <Box sx={{ textAlign: 'center', maxWidth: '600px', margin: 'auto' }}>
+      <Box sx={{ display: 'block', margin: 'auto' }}>
+        <Document file={fileUrl} onLoadSuccess={onLoadSuccess} onLoadError={console.error}>
+          <Page
+            width={600}
+            pageNumber={pageNumber}
+            // renderAnnotationLayer={true} // Disabling annotation layer might help in some cases
+            // renderTextLayer={false} // Disabling text layer might improve rendering
+          />
+        </Document>
+      </Box>
+
+      <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 2 }}>
+        <Button onClick={prevPage} disabled={pageNumber <= 1}>
+          Previous
+        </Button>
+        <Box
+          sx={{
+            margin: '0 15px',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            color: 'black', // Set text color
+          }}
+        >
+          Page {pageNumber} of {numPages}
+        </Box>
+        <Button onClick={nextPage} disabled={pageNumber >= (numPages || 1)}>
+          Next
+        </Button>
+      </Box>
+    </Box>
+  );
+};

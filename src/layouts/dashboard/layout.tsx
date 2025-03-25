@@ -10,6 +10,10 @@ import { _langs, _notifications } from 'src/_mock';
 
 import { Iconify } from 'src/components/iconify';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+
+// import 'react-pdf/dist/esm/Page/TextLayer.css';
+
 import { Main } from './main';
 import { layoutClasses } from '../classes';
 import { NavMobile, NavDesktop } from './nav';
@@ -22,6 +26,9 @@ import { HeaderSection } from '../core/header-section';
 import { AccountPopover } from '../components/account-popover';
 import { LanguagePopover } from '../components/language-popover';
 import { NotificationsPopover } from '../components/notifications-popover';
+
+// eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-unused-vars, import/order, perfectionist/sort-imports
+import { PdfJs } from '@react-pdf-viewer/core';
 
 // ----------------------------------------------------------------------
 
@@ -70,24 +77,18 @@ export function DashboardLayout({ sx, children, header }: DashboardLayoutProps) 
                     [theme.breakpoints.up(layoutQuery)]: { display: 'none' },
                   }}
                 />
-                <NavMobile
-                  data={navData}
-                  open={navOpen}
-                  onClose={() => setNavOpen(false)}
-                  workspaces={_workspaces}
-                />
               </>
             ),
             rightArea: (
               <Box gap={1} display="flex" alignItems="center">
-                <Searchbar />
+                {/* <Searchbar /> */}
                 <LanguagePopover data={_langs} />
                 <NotificationsPopover data={_notifications} />
                 <AccountPopover
                   data={[
                     {
                       label: 'Home',
-                      href: '/',
+                      href: '/user',
                       icon: <Iconify width={22} icon="solar:home-angle-bold-duotone" />,
                     },
                     {
@@ -136,6 +137,7 @@ export function DashboardLayout({ sx, children, header }: DashboardLayoutProps) 
       }}
     >
       <Main>{children}</Main>
+      <img src="https://www.pdf995.com/samples/pdf.pdf" alt="" />
     </LayoutSection>
   );
 }

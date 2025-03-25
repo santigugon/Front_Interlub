@@ -8,8 +8,12 @@ import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
+import Grid from '@mui/material/Grid';
 
-import { _users } from 'src/_mock';
+import { AnalyticsOrderTimeline } from 'src/sections/overview/analytics-order-timeline';
+import { AnalyticsTasks } from 'src/sections/overview/analytics-tasks';
+
+import { _users, _timeline, _tasks } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
 
 import { Iconify } from 'src/components/iconify';
@@ -117,6 +121,15 @@ export function UserView() {
           onRowsPerPageChange={table.onChangeRowsPerPage}
         />
       </Card>
+      <Grid container spacing={3} sx={{ mt: 5, ml: 0 }}>
+        <Grid xs={12} md={6} lg={4} sx={{ mr: 5 }}>
+          <AnalyticsOrderTimeline title="Order timeline" list={_timeline} />
+        </Grid>
+
+        <Grid xs={12} md={6} lg={6}>
+          <AnalyticsTasks title="Tasks" list={_tasks} />
+        </Grid>
+      </Grid>
     </DashboardContent>
   );
 }
@@ -126,7 +139,7 @@ export function UserView() {
 export function useTable() {
   const [page, setPage] = useState(0);
   const [orderBy, setOrderBy] = useState('name');
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(7);
   const [selected, setSelected] = useState<string[]>([]);
   const [order, setOrder] = useState<'asc' | 'desc'>('asc');
 
