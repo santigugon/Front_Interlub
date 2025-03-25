@@ -1,6 +1,7 @@
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
+import '../../user/style.css';
 import { _tasks, _posts, _timeline } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
 
@@ -26,7 +27,8 @@ import { AnalyticsConversionRates } from '../analytics-conversion-rates';
 export function OverviewAnalyticsView() {
   return (
     <DashboardContent maxWidth="xl">
-      <Typography variant="h4" sx={{ mb: { xs: 3, md: 5 } }}>
+      <AboutUs />
+      {/* <Typography variant="h4" sx={{ mb: { xs: 3, md: 5 } }}>
         Hi, Welcome back 👋
       </Typography>
 
@@ -165,8 +167,7 @@ export function OverviewAnalyticsView() {
         <Grid xs={12} md={6} lg={8}>
           <AnalyticsTasks title="Tasks" list={_tasks} />
         </Grid>
-      </Grid>
-      <PDFPreview fileUrl="/assets/test.pdf" />
+      </Grid> */}
     </DashboardContent>
   );
 }
@@ -233,3 +234,80 @@ const PDFPreview: React.FC<PDFPreviewProps> = ({ fileUrl }: PDFPreviewProps) => 
     </Box>
   );
 };
+
+// eslint-disable-next-line arrow-body-style
+const AboutUs = () => {
+  return (
+    <div className="about-us-container">
+      {/* Team Title */}
+      <h1 className="team-title">Datostadas</h1>
+
+      {/* Team Members Section */}
+      <div className="team-members">
+        <div className="team-member">
+          <img src="/assets/images/santi.jpeg" alt="Santiago Gutierrez" />
+          <p>Santiago Gutierrez</p>
+        </div>
+        <div className="team-member">
+          <img src="/assets/images/nanis.jpeg" alt="Mariana Leon" />
+          <p>Mariana Leon</p>
+        </div>
+        <div className="team-member">
+          <img src="/assets/images/miguel.jpeg" alt="Miguel Perez" />
+          <p>Miguel Perez</p>
+        </div>
+      </div>
+
+      {/* Interlub Hackathon Description */}
+      <div className="hackathon-description">
+        <h2>Interlub Hackathon Challenge</h2>
+        <p>
+          El objetivo principal del hackathon es que los participantes desarrollen un enfoque
+          innovador y efectivo para predecir el inventario, utilizando como base los datos
+          históricos de órdenes de venta de tres años.
+        </p>
+        <p>
+          Este desafío busca no solo la creación de un modelo predictivo preciso, sino también la
+          exploración y aplicación de técnicas avanzadas de análisis de datos. Además, se espera que
+          los participantes vayan más allá de los datos proporcionados y propongan nuevas ideas para
+          mejorar el modelo predictivo.
+        </p>
+        <p>
+          Esto incluye la incorporación de características exógenas, como factores económicos,
+          estacionales o de mercado, que puedan influir en las ventas y, por ende, en el inventario.
+        </p>
+        <p>
+          El hackathon está diseñado para fomentar la creatividad y el pensamiento crítico,
+          incentivando a los participantes a explorar diferentes métodos y técnicas de predicción,
+          como modelos de series temporales, regresión, aprendizaje automático, entre otros. La meta
+          es desarrollar soluciones innovadoras que no solo sean precisas, sino también prácticas y
+          aplicables en un entorno empresarial real.
+        </p>
+        <p>
+          El hackathon ofrece una oportunidad única para que los participantes demuestren sus
+          habilidades en análisis de datos y modelado predictivo, al tiempo que contribuyen con
+          ideas frescas y valiosas que pueden tener un impacto significativo en la gestión de
+          inventarios de la empresa.
+        </p>
+      </div>
+
+      {/* PDF Render Section */}
+      <div className="pdf-render">
+        <h3>Ver PDF</h3>
+        <div className="pdf-container">{/* <PDFPreview fileUrl="/assets/test.pdf" /> */}</div>
+      </div>
+
+      {/* Links for downloading PDF and collecting info */}
+      <div className="links">
+        <a href="/path/to/your/pdf.pdf" download className="download-link">
+          Descargar PDF
+        </a>
+        <a href="/your-information-page" className="info-link">
+          Drive
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default AboutUs;

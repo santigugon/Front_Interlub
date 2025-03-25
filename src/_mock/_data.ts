@@ -112,22 +112,76 @@ export const _langs = [
 export const _timeline = [...Array(5)].map((_, index) => ({
   id: _id(index),
   title: [
-    '1983, orders, $4220',
-    '12 Invoices have been paid',
-    'Order #37745 from September',
-    'New order placed #XF-2356',
-    'New order placed #XF-2346',
+    'Pedido #IVP04039, $4220',
+    'Factura de IVP07169 ha sido pagada',
+    'Pedido #37745 de IVP04009 desde Septiembre',
+    'Nuevo pedido de IVP11694 colocado #XF-2356',
+    'Nuevo pedido de IVP11159 colocado #XF-2346',
   ][index],
   type: `order${index + 1}`,
-  time: _times(index),
+  time: _times(index), // Adjusted time, 1 hour less for each index
 }));
 
 // ----------------------------------------------------------------------
 
-export const _tasks = [...Array(5)].map((_, index) => ({
-  id: _id(index),
-  name: _taskNames(index),
-}));
+export const _tasks = [
+  {
+    id: _id(1),
+    name: 'Reabastecer IVP04039',
+    description: 'Reponer stock del IVP04039',
+    assignedTo: 'Juan Pérez',
+    status: 'Pendiente',
+    time: _times(1),
+  },
+  {
+    id: _id(2),
+    name: 'Reabastecer IVP07165',
+    description: 'Reponer stock del IVP07165',
+    assignedTo: 'Ana Gómez',
+    status: 'Completado',
+    time: _times(2),
+  },
+  {
+    id: _id(3),
+    name: 'Reabastecer IVP04009',
+    description: 'Reponer stock del IVP04009',
+    assignedTo: 'Carlos Martínez',
+    status: 'Pendiente',
+    time: _times(3),
+  },
+  {
+    id: _id(4),
+    name: 'Actualizar inventario de IVP11694',
+    description: 'Actualizar el inventario de IVP11694',
+    assignedTo: 'Lucía Rodríguez',
+    status: 'En Progreso',
+    time: _times(4),
+  },
+  {
+    id: _id(5),
+    name: 'Enviar IVP11159 al Cliente',
+    description: 'Enviar IVP11159 al cliente X',
+    assignedTo: 'Pedro López',
+    status: 'Completado',
+    time: _times(5),
+  },
+  {
+    id: _id(6),
+    name: 'Enviar IVP11162 al Cliente',
+    description: 'Enviar IVP11162 al cliente Y',
+    assignedTo: 'María Torres',
+    status: 'En Progreso',
+    time: _times(6),
+  },
+  {
+    id: _id(7),
+    name: 'Reabastecer IVP07331',
+    description: 'Reponer stock del IVP07331',
+    assignedTo: 'Ricardo Sánchez',
+    status: 'Pendiente',
+    time: _times(7),
+  },
+];
 
 // ----------------------------------------------------------------------
 
@@ -170,7 +224,7 @@ export const _notifications = [
   },
   {
     id: _id(5),
-    title: 'IVP)4009',
+    title: 'IVP04009',
     description: 'El producto está en stock y listo para ser enviado',
     avatarUrl: null,
     type: 'order-shipped',
