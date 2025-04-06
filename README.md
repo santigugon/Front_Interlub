@@ -1,48 +1,10 @@
-## Minimal UI ([Free version](https://free.minimals.cc/))
+# Visualizador de Predicciones de Inventario
 
-![license](https://img.shields.io/badge/license-MIT-blue.svg)
+Este frontend ofrece una forma visualmente atractiva e intuitiva de explorar los modelos de predicción desarrollados para la demanda de productos.
 
-![preview](public/assets/images/minimal-free-preview.jpg)
+## ¿Qué hace esta aplicación?
 
-> Free React Admin Dashboard made with Material-UI components and React + Vite.js.
-
-## Pages
-
-- [Dashboard](https://free.minimals.cc/)
-- [Users](https://free.minimals.cc/user)
-- [Products](https://free.minimals.cc/products)
-- [Blog](https://free.minimals.cc/blog)
-- [Sign in](https://free.minimals.cc/sign-in)
-- [Not found](https://free.minimals.cc/404)
-
-## Quick start
-
-- Clone the repo: `git clone https://github.com/minimal-ui-kit/material-kit-react.git`
-- Recommended: `Node.js v20.x`
-- **Install:** `npm i` or `yarn install`
-- **Start:** `npm run dev` or `yarn dev`
-- **Build:** `npm run build` or `yarn build`
-- Open browser: `http://localhost:3039`
-
-## Upgrade to PRO Version
-
-| Minimal Free                | [Minimal Pro](https://material-ui.com/store/items/minimal-dashboard/)                                   |
-| :-------------------------- | :------------------------------------------------------------------------------------------------------ |
-| **6** Pages                 | **70+** Pages                                                                                           |
-| **Partial** theme customize | **Fully** theme customize                                                                               |
-| -                           | **Next.js** version                                                                                     |
-| -                           | **TypeScript** version (Standard Plus and Extended license)                                             |
-| -                           | Design **Figma** file (Standard Plus and Extended license)                                              |
-| -                           | Authentication with **Amplify**, **Auth0**, **JWT**, **Firebase** and **Supabase**                      |
-| -                           | Light/dark mode, right-to-left, form validation... ([+more components](https://minimals.cc/components)) |
-| -                           | Complete users flows                                                                                    |
-| -                           | 1 year of free updates / 6 months of technical support                                                  |
-| -                           | Learn more: [Package & license](https://docs.minimals.cc/package)                                       |
-
-## License
-
-Distributed under the [MIT](https://github.com/minimal-ui-kit/minimal.free/blob/main/LICENSE.md) license.
-
-## Contact us
-
-Email: support@minimals.cc
+- Muestra una lista de productos, junto con su tipo y unidad correspondiente.
+- Al hacer clic sobre un producto, se despliega una visualización con las predicciones de demanda para dicho artículo, permitiendo observar su comportamiento esperado a lo largo del tiempo.
+- También incluye un campo de entrada donde se puede seleccionar una fecha específica para consultar la demanda prevista en ese día.
+- La aplicación evalúa si el inventario actual es suficiente para cubrir la demanda proyectada en la fecha seleccionada, ayudando en la toma de decisiones de abastecimiento y logística.
